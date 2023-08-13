@@ -1,1 +1,1 @@
-# MindCareBot
+# Eliza Bot

@@ -1,4 +1,3 @@
-
 import requests
 import streamlit as st
 
@@ -11,10 +10,6 @@ TWEAKS = {
     "PromptTemplate-aMVlP": {},
     "ConversationBufferMemory-31iVt": {}
 }
-
-BASE_AVATAR_URL = (
-    "https://raw.githubusercontent.com/garystafford-aws/static-assets/main/static"
-)
 
 
 def run_flow(message: str, flow_id: str, tweaks: dict = None) -> dict:
@@ -46,23 +41,15 @@ def main():
     ):
         # adiciona mensagem do usuário no histórico do chat
         st.session_state.messages.append({
-            "role":
-            "user",
-            "content":
-            prompt,
+            "role": "user",
+            "content": prompt,
             "avatar": "icons/user.png"
         })
 
-        with st.chat_message(
-                "user",
-                avatar="icons/user.png"
-        ):
+        with st.chat_message("user", avatar="icons/user.png"):
             st.write(prompt)
 
-        with st.chat_message(
-                "assistant",
-                avatar="icons/assistant.png"
-        ):
+        with st.chat_message("assistant", avatar="icons/assistant.png"):
             message_placeholder = st.empty()
             with st.spinner(text="Digitando..."):
                 response = run_flow(prompt, flow_id=FLOW_ID, tweaks=TWEAKS)
@@ -70,10 +57,8 @@ def main():
                 message_placeholder.write(answer)
 
         st.session_state.messages.append({
-            "role":
-            "assistant",
-            "content":
-            answer,
+            "role": "assistant",
+            "content": answer,
             "avatar": "icons/assistant.png",
         })
 

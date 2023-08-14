@@ -33,6 +33,11 @@ def add_bg_from_url():
             background-size: cover;
             min-height: 100vh;
          }}
+         @media (max-width: 768px) {{
+            .stApp {{
+                background-size: contain;
+            }}
+         }}
          </style>
          """,
                 unsafe_allow_html=True)

@@ -1,7 +1,7 @@
 import requests
 import streamlit as st
 
-BASE_API_URL = "http://127.0.0.1:7860/api/v1/process"
+BASE_API_URL = "http://localhost:7860/api/v1/process"
 FLOW_ID = "8b099631-0088-462b-8163-50e817fbfdd1"
 
 TWEAKS = {

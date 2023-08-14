@@ -1,3 +1,2 @@
-requests
-streamlit
-streamlit-chat
+requests==2.31.0
+streamlit==1.25.0

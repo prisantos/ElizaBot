@@ -66,9 +66,11 @@ def main():
             unsafe_allow_html=True,
         )
 
-        if prompt := st.chat_input(
-                "Oi, Sou a Eliza Bot, sua psicóloga virtual. Como você está se sentindo hoje"
-        ):
+        prompt = st.chat_input(
+            "Oi, Sou a Eliza Bot, sua psicóloga virtual. Como você está se sentindo hoje"
+        )
+
+        if prompt:
             # adiciona mensagem do usuário no histórico do chat
             st.session_state.messages.append({
                 "role": "user",

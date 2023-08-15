@@ -1,8 +1,8 @@
 import requests
 import streamlit as st
 
-BASE_API_URL = "https://langflow-su78.onrender.com/api/v1/process"
-FLOW_ID = "96159c25-9c92-49ee-9ddf-67f0edfeda40"
+BASE_API_URL = "https://langflow-jrvb.onrender.com/api/v1/process"
+FLOW_ID = "2308093d-8700-4328-aeab-63235e9785a4"
 
 TWEAKS = {
     "ChatOpenAI-01nzK": {},
@@ -20,7 +20,7 @@ def run_flow(message: str, flow_id: str, tweaks: dict = None) -> dict:
     if tweaks:
         payload["tweaks"] = tweaks
 
-    response = requests.post(api_url, json=payload, verify=False)
+    response = requests.post(api_url, json=payload)
     return response.json()
 
 
@@ -90,6 +90,7 @@ def main():
                 message_placeholder = st.empty()
                 with st.spinner(text="Digitando..."):
                     response = run_flow(prompt, flow_id=FLOW_ID, tweaks=TWEAKS)
+                    print(response)
                     answer = response["result"]["text"]
                     message_placeholder.write(answer)
 

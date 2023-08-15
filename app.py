@@ -20,7 +20,7 @@ def run_flow(message: str, flow_id: str, tweaks: dict = None) -> dict:
     if tweaks:
         payload["tweaks"] = tweaks
 
-    response = requests.post(api_url, json=payload)
+    response = requests.post(api_url, json=payload, verify=False)
     return response.json()
 
 

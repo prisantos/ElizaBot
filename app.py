@@ -1,10 +1,12 @@
 import os
 import streamlit as st
 from langflow import load_flow_from_json
+import openai
 
 openai_api_key = os.environ.get("OPENAI_API_KEY")
+chat_openai_node = openai.ChatOpenAI(openai_api_key=openai_api_key)
 
-flow = load_flow_from_json("flow/elizabot.json", openai_api_key)
+flow = load_flow_from_json("flow/elizabot.json", chat_openai_node)
 
 
 def add_bg_from_url():

@@ -1,9 +1,7 @@
 import os
 import streamlit as st
 from langflow import load_flow_from_json
-from dotenv import load_dotenv
 
-load_dotenv()
 openai_api_key = os.environ.get("OPENAI_API_KEY")
 
 flow = load_flow_from_json("flow/elizabot.json", openai_api_key)
